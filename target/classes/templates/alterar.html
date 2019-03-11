@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html
+        lang="pt-br"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8" />
+    <title>Alterar contato</title>
+    <link href="/webjars/materializecss/0.97.7/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h3>Alterar contato</h3>
+        <form th:action="@{${'/alterar/'+ contato.getId()}}" method="PUT" class="col s12" th:object="${contato}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" name="nome" id="nome" class="validate" th:field="*{nome}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" name="email" placeholder="Email" id="email" class="validate" th:field="*{email}" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s4">
+                    <button class="btn waves-effect waves-light" type="submit">Alterar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://mvnrepository.com/artifact/org.webjars/vue"></script>
+<script src="https://mvnrepository.com/artifact/org.webjars/jquery"></script>
+<script src="/webjars/materializecss/0.97.7/js/materialize.js"></script>
+</body>
+</html>

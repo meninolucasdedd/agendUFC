@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html
+        lang="pt-br"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>AgendaUFC</title>
+    <script src="js/scripts.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+</head>
+<body>
+       <div id="app1">
+            <v-toolbar color="#8A05BE" dark tabs>
+             <v-icon>fas fa-user</v-icon> 
+            <v-toolbar-title>Agenda UFC</v-toolbar-title>      
+       </div>
+    <div id="app">
+        
+        <div class="row">          
+                
+                <h3 class="text-md-center" >Adicionar Contato</h3>
+  
+            <form v-on:submit.prevent="onSubmit()" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" v-model="contato.nome" name="nome" placeholder="Nome do contato" id="nome" class="validate" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" v-model="contato.email" name="email" placeholder="Email" id="email" class="validate" />
+                    </div>
+                </div>
+                <div class="row">
+                   
+                    <div class="col s4">
+                        <button class="btn waves-effect waves-light" type="submit">Adicionar contato</button>
+                    </div>
+                    <div class="col s4">
+                        <button class="btn red" type="reset">Limpar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row" id="contato">
+            <h5>Contatos</h5>
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Alterar</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="contato in contatos">
+                        <td>{{contato.id}}</td>
+                        <td>{{contato.nome}}</td>
+                        <td>{{contato.email}}</td>
+                        <td><a class="btn waves-effect btn-flat green" v-on:click="alterarContato()">Alterar contato</a></td>
+                        <td><a class="btn waves-effect btn-flat red" v-on:click="deletarContato()">Excluir contato</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        
+    </div>
+
+    <!-- </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+
+</body>
+</html>
